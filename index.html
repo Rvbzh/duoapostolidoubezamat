@@ -271,6 +271,34 @@
 }
 .track-card:hover .track-play { background: rgba(201,169,110,0.2); }
 .track-body { padding: 0; }
+.video-thumb {
+  position: relative;
+  overflow: hidden;
+  margin: -2.5rem -2rem 1.5rem -2rem;
+}
+.video-thumb img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: brightness(0.8) contrast(1.1);
+  transition: transform 0.5s ease;
+}
+.video-link:hover .video-thumb img { transform: scale(1.04); }
+.video-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px; height: 50px;
+  border: 1px solid rgba(201,169,110,0.8);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 1rem;
+  background: rgba(0,0,0,0.45);
+  transition: background 0.3s;
+}
+.video-link:hover .video-play { background: rgba(201,169,110,0.2); }
 
   </style>
 </head>
@@ -379,23 +407,33 @@
 
 
   <section id="videos">
-    <div class="container">
-      <span class="section-label">Live</span>
-      <h2 class="section-title">Extraits vidéos</h2>
-      <div class="videos-grid">
-        <a class="video-link" href="https://www.facebook.com/reel/718901523952866" target="_blank" rel="noopener">
-          <div class="video-icon">▶</div>
-          <div class="video-label">Extrait live — I</div>
-          <div class="video-sub">Voir sur Facebook</div>
-        </a>
-        <a class="video-link" href="https://www.facebook.com/reel/1954642985093385" target="_blank" rel="noopener">
-          <div class="video-icon">▶</div>
-          <div class="video-label">Extrait live — II</div>
-          <div class="video-sub">Voir sur Facebook</div>
-        </a>
-      </div>
+  <div class="container">
+    <span class="section-label">Live</span>
+    <h2 class="section-title">Extraits vidéos</h2>
+    <div class="videos-grid">
+
+      <a class="video-link" href="https://www.facebook.com/reel/718901523952866" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="LIVE_SRC_ICI" alt="Extrait live I" />
+          <div class="video-play">▶</div>
+        </div>
+        <div class="video-label">Extrait live — I</div>
+        <div class="video-sub">Voir sur Facebook</div>
+      </a>
+
+      <a class="video-link" href="https://www.facebook.com/reel/1954642985093385" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="LIVE_SRC_ICI" alt="Extrait live II" />
+          <div class="video-play">▶</div>
+        </div>
+        <div class="video-label">Extrait live — II</div>
+        <div class="video-sub">Voir sur Facebook</div>
+      </a>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <section id="contact">
     <div class="container">
@@ -427,5 +465,6 @@
 
 </body>
 </html>
+
 
 
