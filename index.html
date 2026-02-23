@@ -242,6 +242,36 @@
       section { padding: 5rem 1.5rem; }
       .hero-content h1 { font-size: 3.2rem; }
     }
+    .track-thumb {
+  position: relative;
+  overflow: hidden;
+  margin: -2rem -2rem 1.5rem -2rem;
+}
+.track-thumb img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85) contrast(1.1);
+  transition: transform 0.5s ease;
+}
+.track-card:hover .track-thumb img { transform: scale(1.04); }
+.track-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px; height: 50px;
+  border: 1px solid rgba(201,169,110,0.8);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  font-size: 1rem;
+  background: rgba(0,0,0,0.4);
+  transition: background 0.3s;
+}
+.track-card:hover .track-play { background: rgba(201,169,110,0.2); }
+.track-body { padding: 0; }
+
   </style>
 </head>
 <body>
@@ -311,26 +341,42 @@
     </div>
   </section>
 
-  <section id="ecouter">
-    <div class="container">
-      <span class="section-label">Écouter</span>
-      <h2 class="section-title">Extraits audio</h2>
-      <div class="tracks-grid">
-        <a class="track-card" href="https://www.youtube.com/watch?v=JRZS4Dsw7_o" target="_blank" rel="noopener">
+ <section id="ecouter">
+  <div class="container">
+    <span class="section-label">Écouter</span>
+    <h2 class="section-title">Extraits audio</h2>
+    <div class="tracks-grid">
+
+      <a class="track-card" href="https://www.youtube.com/watch?v=JRZS4Dsw7_o" target="_blank" rel="noopener">
+        <div class="track-thumb">
+          <img src="https://img.youtube.com/vi/JRZS4Dsw7_o/maxresdefault.jpg" alt="Sacramento" />
+          <div class="track-play">▶</div>
+        </div>
+        <div class="track-body">
           <div class="track-type">Demo</div>
           <div class="track-title">Sacramento</div>
           <div class="track-label">Apostolidou / Bezamat</div>
           <div class="track-arrow">Écouter sur YouTube</div>
-        </a>
-        <a class="track-card" href="https://www.youtube.com/watch?v=M5Owr6cwMXo" target="_blank" rel="noopener">
+        </div>
+      </a>
+
+      <a class="track-card" href="https://www.youtube.com/watch?v=M5Owr6cwMXo" target="_blank" rel="noopener">
+        <div class="track-thumb">
+          <img src="https://img.youtube.com/vi/M5Owr6cwMXo/maxresdefault.jpg" alt="Miazis Ki Esi San Thalassa" />
+          <div class="track-play">▶</div>
+        </div>
+        <div class="track-body">
           <div class="track-type">Demo</div>
           <div class="track-title">Miazis Ki Esi San Thalassa</div>
           <div class="track-label">Apostolidou / Bezamat</div>
           <div class="track-arrow">Écouter sur YouTube</div>
-        </a>
-      </div>
+        </div>
+      </a>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
   <section id="videos">
     <div class="container">
@@ -381,4 +427,5 @@
 
 </body>
 </html>
+
 
