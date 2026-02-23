@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apostolidou / Bezamat — Jazz World Méditerranéen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a96e;
+      --gold-light: #e8d5a3;
+      --dark: #0a0a0a;
+      --dark2: #111111;
+      --dark3: #1a1a1a;
+      --text: #d4d4d4;
+      --text-muted: #888;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--dark);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent);
+      backdrop-filter: blur(2px);
+    }
+    nav .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+    nav ul a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    nav ul a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    #hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      background: 
+        radial-gradient(ellipse at 30% 50%, rgba(201,169,110,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 50%, rgba(201,169,110,0.04) 0%, transparent 60%),
+        linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 50%, #0a0a0a 100%);
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(201,169,110,0.015) 80px, rgba(201,169,110,0.015) 81px),
+        repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(201,169,110,0.015) 80px, rgba(201,169,110,0.015) 81px);
+      pointer-events: none;
+    }
+    .hero-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      opacity: 0.85;
+    }
+    #hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: 0.05em;
+      color: #fff;
+      text-shadow: 0 0 80px rgba(201,169,110,0.15);
+    }
+    #hero h1 span { color: var(--gold); }
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2rem auto;
+      opacity: 0.6;
+    }
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: var(--text-muted);
+      max-width: 600px;
+      letter-spacing: 0.05em;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s infinite;
+    }
+    @keyframes scrollLine {
+      0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); }
+      100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+    }
+
+    /* ── SECTIONS GÉNÉRALES ── */
+    section { padding: 7rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 2.5rem;
+    }
+    .gold-line {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 2.5rem;
+      opacity: 0.6;
+    }
+
+    /* ── PRÉSENTATION DUO ── */
+    #presentation {
+      background: var(--dark2);
+      border-top: 1px solid rgba(201,169,110,0.1);
+      border-bottom: 1px solid rgba(201,169,110,0.1);
+    }
+    #presentation .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    #presentation blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.5;
+      border-left: 2px solid var(--gold);
+      padding-left: 2rem;
+    }
+    #presentation p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 2;
+    }
+
+    /* ── ARTISTES ── */
+    #artistes { background: var(--dark); }
+    .artistes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 4rem;
+    }
+    .artiste-card {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .artiste-photo-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .artiste-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .artiste-photo-wrap img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      object-position: center top;
+      filter: contrast(1.05) brightness(0.92);
+      display: block;
+      transition: transform 0.8s ease;
+    }
+    .artiste-card:hover .artiste-photo-wrap img {
+      transform: scale(1.03);
+    }
+    .artiste-info { padding: 0 0.5rem; }
+    .artiste-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+    .artiste-role {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .artiste-instruments {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      border-left: 1px solid var(--gold);
+      padding-left: 1rem;
+      opacity: 0.8;
+    }
+    .artiste-bio {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+
+    /* ── ÉCOUTER ── */
+    #ecouter {
+      background: var(--dark3);
+      border-top: 1px solid rgba(201,169,110,0.08);
+      border-bottom: 1px solid rgba(201,169,110,0.08);
+    }
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .track-card {
+      border: 1px solid rgba(201,169,110,0.15);
+      padding: 2rem;
+      background: rgba(201,169,110,0.02);
+      transition: border-color 0.3s, background 0.3s;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+    .track-card:hover {
+      border-color: rgba(201,169,110,0.4);
+      background: rgba(201,169,110,0.05);
+    }
+    .track-type {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .track-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .track-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .track-arrow {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      transition: gap 0.3s;
+    }
+    .track-card:hover .track-arrow::after {
+      content: ' →';
+    }
+
+    /* ── VIDÉOS ── */
+    #videos { background: var(--dark2); }
+    .videos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .video-link {
+      display: block;
+      border: 1px solid rgba(201,169,110,0.15);
+      padding: 2.5rem 2rem;
+      background: rgba(255,255,255,0.02);
+      text-decoration: none;
+      color: inherit;
+      text-align: center;
+      transition: border-color 0.3s, background 0.3s;
+      position: relative;
+    }
+    .video-link:hover {
+      border-color: rgba(201,169,110,0.4);
+      background: rgba(201,169,110,0.04);
+    }
+    .video-icon {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.2rem;
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+    .video-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+    .video-sub {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--dark);
+      text-align: center;
+    }
+    #contact .container { max-width: 700px; }
+    .contact-info {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      align-items: center;
+    }
+    .contact-type {
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .contact-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: #fff;
+    }
+    .contact-value a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-value a:hover { color: var(--gold); }
+    .contact-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(201,169,110,0.3);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(201,169,110,0.1);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.2);
+      text-transform: uppercase;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      nav { padding: 1.2rem 1.5rem; }
+      #presentation .container { grid-template-columns: 1fr; gap: 2.5rem; }
+      .artistes-grid { grid-template-columns: 1fr; }
+      .tracks-grid { grid-template-columns: 1fr; }
+      .videos-grid { grid-template-columns: 1fr; }
+      section { padding: 5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">A / B</div>
+    <ul>
+      <li><a href="#presentation">Le Duo</a></li>
+      <li><a href="#artistes">Artistes</a></li>
+      <li><a href="#ecouter">Écouter</a></li>
+      <li><a href="#videos">Vidéos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-tag">Jazz · World · Méditerranéen</div>
+    <h1>Apostolidou<br/><span>/</span> Bezamat</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-tagline">Un concert hypnotisant mêlant chant oriental,<br/>poésie et échappées sonores</p>
+    <div class="hero-scroll">Découvrir</div>
+  </section>
+
+  <!-- PRÉSENTATION -->
+  <section id="presentation">
+    <div class="container">
+      <blockquote>
+        "Rébétiko, world, jazz et rock réunis autour d'une voix exceptionnelle et d'une guitare incandescente."
+      </blockquote>
+      <div>
+        <span class="section-label">Le Duo</span>
+        <div class="gold-line"></div>
+        <p>
+          Despina Apostolidou et Hervé Bezamat forment un duo aux univers complémentaires : la chaleur pénétrante d'une voix méditerranéenne portant les traditions du monde oriental, et la guitare envoûtante d'un compositeur aux grands espaces sonores. Ensemble, ils tracent des ponts entre les rives de la Méditerranée.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTISTES -->
+  <section id="artistes">
+    <div class="container">
+      <span class="section-label">Les Artistes</span>
+      <h2 class="section-title">Deux univers,<br/>une rencontre</h2>
+      <div class="artistes-grid">
+
+        <!-- DESPINA -->
+        <div class="artiste-card">
+          <div class="artiste-photo-wrap">
+            <img src="Madam-Debo.jpg" alt="Despina Apostolidou" />
+          </div>
+          <div class="artiste-info">
+            <h3 class="artiste-name">Despina Apostolidou</h3>
+            <span class="artiste-role">Athènes</span>
+            <div class="artiste-instruments">Chant · Kazou · Percussions</div>
+            <p class="artiste-bio">
+              Musicienne et chanteuse athénienne, Despina se produit régulièrement sur les scènes, théâtres et festivals grecs et aux quatre coins du monde — Ethno Fusion Fest (Serbie), Ric Theater (Chypre), Melitzazz Festival (Grèce), Rebetiko Fest (Grèce), Izmir State Theater (Turquie)… De sa voix chaude et pénétrante, elle perpétue les traditions musicales de la Méditerranée orientale, chantant en grec, arabe, turc, arménien… comme autant de ponts jetés entre les rives méditerranéennes.
+            </p>
+          </div>
+        </div>
+
+        <!-- HERVÉ -->
+        <div class="artiste-card">
+          <div class="artiste-photo-wrap">
+            <img src="GRAND-CAUSSE-SOLO-portrait.jpg" alt="Hervé Bezamat" />
+          </div>
+          <div class="artiste-info">
+            <h3 class="artiste-name">Hervé Bezamat</h3>
+            <span class="artiste-role">Toulouse</span>
+            <div class="artiste-instruments">Guitare · Loops · Effets</div>
+            <p class="artiste-bio">
+              Musicien et compositeur toulousain, adorateur des grands espaces sonores, Hervé Bezamat croise le jazz, le folk américain et les musiques du monde avec une sensibilité et une liberté uniques. Il se produit dans toute la France et une partie de l'Europe — Angleterre, Allemagne, Suisse, Belgique.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉCOUTER -->
+  <section id="ecouter">
+    <div class="container">
+      <span class="section-label">Écouter</span>
+      <h2 class="section-title">Extraits audio</h2>
+      <div class="tracks-grid">
+        <a class="track-card" href="https://www.youtube.com/watch?v=JRZS4Dsw7_o" target="_blank" rel="noopener">
+          <div class="track-type">Demo</div>
+          <div class="track-title">Sacramento</div>
+          <div class="track-label">Apostolidou / Bezamat</div>
+          <div class="track-arrow">Écouter sur YouTube</div>
+        </a>
+        <a class="track-card" href="https://www.youtube.com/watch?v=M5Owr6cwMXo" target="_blank" rel="noopener">
+          <div class="track-type">Demo</div>
+          <div class="track-title">Miazis Ki Esi San Thalassa</div>
+          <div class="track-label">Apostolidou / Bezamat</div>
+          <div class="track-arrow">Écouter sur YouTube</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDÉOS LIVE -->
+  <section id="videos">
+    <div class="container">
+      <span class="section-label">Live</span>
+      <h2 class="section-title">Extraits vidéos</h2>
+      <div class="videos-grid">
+        <a class="video-link" href="https://www.facebook.com/reel/718901523952866" target="_blank" rel="noopener">
+          <div class="video-icon">▶</div>
+          <div class="video-label">Extrait live — I</div>
+          <div class="video-sub">Voir sur Facebook</div>
+        </a>
+        <a class="video-link" href="https://www.facebook.com/reel/1954642985093385" target="_blank" rel="noopener">
+          <div class="video-icon">▶</div>
+          <div class="video-label">Extrait live — II</div>
+          <div class="video-sub">Voir sur Facebook</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">Réservations & diffusion</h2>
+      <div class="gold-line" style="margin: 0 auto 1rem;"></div>
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-type">Contact</span>
+          <div class="contact-value">Hervé Bezamat</div>
+        </div>
+        <div class="contact-divider"></div>
+        <div class="contact-item">
+          <span class="contact-type">Email</span>
+          <div class="contact-value"><a href="mailto:baachasso@gmail.com">baachasso@gmail.com</a></div>
+        </div>
+        <div class="contact-divider"></div>
+        <div class="contact-item">
+          <span class="contact-type">Téléphone</span>
+          <div class="contact-value"><a href="tel:+33607166779">06 07 16 67 79</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Apostolidou / Bezamat — Jazz World Méditerranéen</p>
+  </footer>
+
+</body>
+</html>
