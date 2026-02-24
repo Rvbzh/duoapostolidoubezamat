@@ -92,41 +92,28 @@
     #dates { background: var(--dark2); border-top: 1px solid rgba(201,169,110,0.08); }
     .dates-list { max-width: 720px; }
     .dates-group-label {
-      display: block;
-      font-size: 0.58rem; letter-spacing: 0.4em; text-transform: uppercase;
-      color: rgba(201,169,110,0.35); margin: 0 0 1rem;
+      display: block; font-size: 0.58rem; letter-spacing: 0.4em;
+      text-transform: uppercase; color: rgba(201,169,110,0.35); margin: 0 0 1rem;
     }
     .dates-group-label.upcoming { color: var(--gold); opacity: 0.8; }
     .date-row {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 1.2rem;
-      border-left: 1px solid rgba(201,169,110,0.18);
-      margin-bottom: 3px;
-      transition: border-color 0.3s, background 0.3s;
+      padding: 1rem 1.2rem; border-left: 1px solid rgba(201,169,110,0.18);
+      margin-bottom: 3px; transition: border-color 0.3s, background 0.3s;
     }
     .date-row:hover { border-color: var(--gold); background: rgba(201,169,110,0.03); }
     .date-row.past { opacity: 0.4; }
     .date-row.future { border-left-color: rgba(201,169,110,0.5); }
     .date-row.future:hover { border-left-color: var(--gold); background: rgba(201,169,110,0.04); }
-    .date-venue {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem; font-weight: 400; color: #f0ead6; letter-spacing: 0.03em;
-    }
+    .date-venue { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; color: #f0ead6; }
     .date-row.past .date-venue { color: #6a5a40; }
-    .date-city {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem; font-weight: 300; font-style: italic;
-      color: var(--text-muted); margin-left: 0.5rem;
-    }
+    .date-city { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; font-style: italic; color: var(--text-muted); margin-left: 0.4rem; }
     .date-row.past .date-city { color: #4a3e2a; }
-    .date-when {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.62rem; font-weight: 300;
-      letter-spacing: 0.2em; color: var(--gold); opacity: 0.75;
-      white-space: nowrap; margin-left: 1.5rem;
-    }
+    .date-when { font-family: 'Montserrat', sans-serif; font-size: 0.62rem; font-weight: 300; letter-spacing: 0.2em; color: var(--gold); opacity: 0.75; white-space: nowrap; margin-left: 1.5rem; }
     .date-row.past .date-when { color: #4a3e2a; opacity: 1; }
     .dates-spacer { height: 2.5rem; }
+    .date-row.residency { border-left-color: rgba(201,169,110,0.8); background: rgba(201,169,110,0.05); }
+    .date-row.residency .date-when { color: var(--gold); opacity: 1; font-style: italic; }
 
   </style>
 </head>
@@ -264,70 +251,60 @@
       <h2 class="section-title">Dates &amp; Concerts</h2>
       <div class="gold-line"></div>
       <div class="dates-list">
-
         <span class="dates-group-label">— Récents —</span>
-
         <div class="date-row past">
-          <span><span class="date-venue">Chez Nous</span><span class="date-city">— Dax</span></span>
+          <span><span class="date-venue">Chez Nous</span><span class="date-city"> — Dax</span></span>
           <span class="date-when">24 · 10 · 2025</span>
         </div>
         <div class="date-row past">
-          <span><span class="date-venue">La Maison de la Terre</span><span class="date-city">— Poucharramet</span></span>
+          <span><span class="date-venue">La Maison de la Terre</span><span class="date-city"> — Poucharramet</span></span>
           <span class="date-when">25 · 10 · 2025</span>
         </div>
         <div class="date-row past">
-          <span><span class="date-venue">L'Arrosoir</span><span class="date-city">— Figeac</span></span>
+          <span><span class="date-venue">L'Arrosoir</span><span class="date-city"> — Figeac</span></span>
           <span class="date-when">06 · 02 · 2026</span>
         </div>
         <div class="date-row past">
-          <span><span class="date-venue">La Musardière</span><span class="date-city">— Saintes</span></span>
+          <span><span class="date-venue">La Musardière</span><span class="date-city"> — Saintes</span></span>
           <span class="date-when">07 · 02 · 2026</span>
         </div>
-
-        <div class="dates-spacer"></div>
-        <span class="dates-group-label upcoming">— À venir —</span>
-
-        <div class="date-row future">
-          <span><span class="date-venue">Hôtel des Consuls</span><span class="date-city">— Toulouse</span></span>
-          <span class="date-when">27 · 03 · 2026</span>
-        </div>
-        <div class="date-row future">
-          <span><span class="date-venue">Hôtel des Consuls</span><span class="date-city">— Toulouse</span></span>
-          <span class="date-when">03 · 04 · 2026</span>
-        </div>
-        <div class="date-row future">
-          <span><span class="date-venue">Hôtel des Consuls</span><span class="date-city">— Toulouse</span></span>
-          <span class="date-when">11 · 04 · 2026</span>
-        </div>
-        <div class="date-row future">
-          <span><span class="date-venue">Hôtel des Consuls</span><span class="date-city">— Toulouse</span></span>
-          <span class="date-when">25 · 04 · 2026</span>
-        </div>
-        <div class="date-row future">
-          <span><span class="date-venue">Le Vivres</span><span class="date-city">— Rochefort</span></span>
+        <div class="date-row past">
+          <span><span class="date-venue">Le Vivres</span><span class="date-city"> — Rochefort</span></span>
           <span class="date-when">08 · 05 · 2026</span>
         </div>
+        <div class="dates-spacer"></div>
+        <span class="dates-group-label upcoming">— À venir —</span>
         <div class="date-row future">
-          <span><span class="date-venue">Hôtel des Consuls</span><span class="date-city">— Toulouse</span></span>
-          <span class="date-when">22 · 05 · 2026</span>
-        </div>
-        <div class="date-row future">
-          <span><span class="date-venue">Hôtel des Consuls</span><span class="date-city">— Toulouse</span></span>
-          <span class="date-when">20 · 06 · 2026</span>
-        </div>
-        <div class="date-row future">
-          <span><span class="date-venue">Hôtel des Consuls</span><span class="date-city">— Toulouse</span></span>
-          <span class="date-when">27 · 06 · 2026</span>
-        </div>
-        <div class="date-row future">
-          <span><span class="date-venue">Terres Rouges</span><span class="date-city">— Villecomtal</span></span>
+          <span><span class="date-venue">Terres Rouges</span><span class="date-city"> — Villecomtal</span></span>
           <span class="date-when">17 · 10 · 2026</span>
         </div>
-
+        <div class="date-row future">
+          <span><span class="date-venue">La Musardière</span><span class="date-city"> — Saintes</span></span>
+          <span class="date-when">18 · 10 · 2026</span>
+        </div>
+        <div class="date-row future">
+          <span><span class="date-venue">La Maison de la Terre</span><span class="date-city"> — Poucharramet</span></span>
+          <span class="date-when">25 · 10 · 2026</span>
+        </div>
+        <div class="date-row future">
+          <span><span class="date-venue">L'Arrosoir</span><span class="date-city"> — Figeac</span></span>
+          <span class="date-when">06 · 11 · 2026</span>
+        </div>
+        <div class="date-row future">
+          <span><span class="date-venue">Le Vivres</span><span class="date-city"> — Rochefort</span></span>
+          <span class="date-when">07 · 11 · 2026</span>
+        </div>
+        <div class="date-row future">
+          <span><span class="date-venue">L'Aloko</span><span class="date-city"> — Millau</span></span>
+          <span class="date-when">08 · 11 · 2026</span>
+        </div>
+        <div class="date-row future">
+          <span><span class="date-venue">Résidence</span><span class="date-city"> — Toulouse</span></span>
+          <span class="date-when">11 → 17 · 11 · 2026</span>
+        </div>
       </div>
     </div>
   </section>
-
   <section id="contact">
     <div class="container">
       <div class="contact-info">
