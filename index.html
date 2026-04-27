@@ -379,26 +379,28 @@
 <section id="artists" class="artists-section artists-premium">
   <div class="artists-wrap">
     <div class="artist-video-premium">
-  <div class="artist-video-embed">
+  <div style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:14px;background:#000;">
     <iframe
       src="https://www.youtube.com/embed/videoseries?list=PLXYR1NzexoqIr_beVuL_vWx59auP8SLm6&rel=0"
       title="Playlist YouTube"
       loading="lazy"
       referrerpolicy="strict-origin-when-cross-origin"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
+      allowfullscreen
+      style="width:100%;height:100%;border:0;display:block;">
     </iframe>
   </div>
+</div>
 
-  <p class="artist-video-actions">
-    <a
-      class="artist-video-link"
-      href="https://www.youtube.com/playlist?list=PLXYR1NzexoqIr_beVuL_vWx59auP8SLm6"
-      target="_blank"
-      rel="noopener noreferrer">
-      Voir la playlist complète
-    </a>
-  </p>
+<div style="text-align:center;margin-top:14px;">
+  <a
+    href="https://www.youtube.com/playlist?list=PLXYR1NzexoqIr_beVuL_vWx59auP8SLm6"
+    target="_blank"
+    rel="noopener noreferrer"
+    style="display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 16px;border:1px solid currentColor;border-radius:999px;color:inherit;text-decoration:none;opacity:.9;">
+    Voir la playlist complète
+  </a>
+</div>
 </div>
 
     <div class="artist-photo-wide">
